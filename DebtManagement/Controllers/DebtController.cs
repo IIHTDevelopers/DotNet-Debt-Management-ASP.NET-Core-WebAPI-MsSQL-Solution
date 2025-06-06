@@ -19,7 +19,7 @@ namespace DebtManagement.Controllers
         }
 
         [HttpPost]
-        [Route("create-debt")]
+        [Route("debt")]
         [AllowAnonymous]
         public async Task<IActionResult> CreateDebt([FromBody] Debt model)
         {
@@ -36,7 +36,7 @@ namespace DebtManagement.Controllers
 
 
         [HttpPut]
-        [Route("update-debt")]
+        [Route("debt")]
         public async Task<IActionResult> UpdateDebt([FromBody] DebtViewModel model)
         {
             var debt = await _DebtService.UpdateDebt(model);
@@ -53,7 +53,7 @@ namespace DebtManagement.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-debt")]
+        [Route("debt")]
         public async Task<IActionResult> DeleteDebt(int id)
         {
             var debt = await _DebtService.GetDebtById(id);
@@ -71,7 +71,7 @@ namespace DebtManagement.Controllers
 
 
         [HttpGet]
-        [Route("get-debt-by-id")]
+        [Route("debt")]
         public async Task<IActionResult> GetDebtById(int id)
         {
             var debt = await _DebtService.GetDebtById(id);
@@ -87,7 +87,7 @@ namespace DebtManagement.Controllers
         }
 
         [HttpGet]
-        [Route("get-all-debts")]
+        [Route("debts")]
         public async Task<IEnumerable<Debt>> GetAllDebts()
         {
             return _DebtService.GetAllDebts();
